@@ -3,6 +3,10 @@ kind: pipeline
 type: docker
 name: default
 
+platform:
+  os: linux
+  arch: amd64
+
 steps:
 - name: backend
   image: docker
@@ -12,7 +16,7 @@ steps:
     PASSWORD:
       from_secret: DOCKER_HUB_PASSWORD
   commands:
-  - systemctl start docker
+  - sudo systemctl start docker
   - docker login -u $USERNAME -p $PASSWORD
   - docker build -t nunz9684/test-ci-project:$DRONE_BUILD_NUMBER .
   - docker push push nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
