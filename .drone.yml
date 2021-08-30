@@ -12,7 +12,7 @@ steps:
     PASSWORD:
       from_secret: DOCKER_HUB_PASSWORD
   commands:
-  - sudo systemctl start docker
+  - systemctl start docker
   - docker login -u $USERNAME -p $PASSWORD
   - docker build -t nunz9684/test-ci-project:$DRONE_BUILD_NUMBER .
   - docker push push nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
