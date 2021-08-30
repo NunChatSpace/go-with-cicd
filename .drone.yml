@@ -12,7 +12,6 @@ steps:
     PASSWORD:
       from_secret: DOCKER_HUB_PASSWORD
   commands:
-  - service docker restart
   - docker login -u $USERNAME -p $PASSWORD
   - docker build -t nunz9684/test-ci-project:$DRONE_BUILD_NUMBER .
   - docker push push nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
