@@ -5,15 +5,13 @@ name: default
 
 steps:
 - name: backend
-  image: golang
+  image: docker
   environment:
     DOCKER_HUB_USERNAME:
       from_secret: DOCKER_HUB_USERNAME
     DOCKER_HUB_USERNAME:
       from_secret: DOCKER_HUB_USERNAME
   commands:
-  - go build
-  - go test
   - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
   - docker build -t nunz9684/test-ci-project:$DRONE_BUILD_NUMBER .
   - docker push push nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
