@@ -17,7 +17,10 @@ steps:
   - docker push push nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
   - docker tag nunz9684/test-ci-project:$DRONE_BUILD_NUMBER nunz9684/test-ci-project:latest
   - docker push nunz9684/test-ci-project:latest
-
+  volumes:
+    - name: dockersock
+      path: /var/run/
+      
 trigger:
   event:
   - push
