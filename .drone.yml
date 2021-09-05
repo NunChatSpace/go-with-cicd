@@ -7,14 +7,12 @@ steps:
     image: plugins/docker
     settings: 
       username: 
-        from_secret: USERNAME
+        from_secret: DOCKER_HUB_USERNAME
       password:
-        from_secret: PASSWORD
+        from_secret: DOCKER_HUB_PASSWORD
       repo: nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
       tag: latest
     file: Dockerfile
-    commands:
-    - docker login -u $USERNAME -p $PASSWORD
     when:
       branch: [main]
       event: [push]
