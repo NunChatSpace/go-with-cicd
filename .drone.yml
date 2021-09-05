@@ -10,7 +10,7 @@ steps:
         from_secret: DOCKER_HUB_USERNAME
       password:
         from_secret: DOCKER_HUB_PASSWORD
-      repo: nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
+      repo: nunz9684/test-ci-project
       tag: latest
     file: Dockerfile
     when:
