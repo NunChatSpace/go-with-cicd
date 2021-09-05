@@ -14,7 +14,7 @@ steps:
       tag: latest
     file: Dockerfile
     when:
-      branch: [master]
+      branch: [main]
       event: [push]
 
 # ---
