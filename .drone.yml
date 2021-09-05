@@ -13,6 +13,8 @@ steps:
       repo: nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
       tag: latest
     file: Dockerfile
+    commands:
+    - docker login -u $USERNAME -p $PASSWORD
     when:
       branch: [main]
       event: [push]
