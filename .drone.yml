@@ -1,3 +1,8 @@
+---
+kind: pipeline
+# type: docker
+# name: default
+
 pipline:
   publish:
     image: plugins/docker
