@@ -1,20 +1,17 @@
 ---
 kind: pipeline
-type: docker
 name: default
 
 steps:
   - name: publish
     image: plugins/docker
-    environment:
-      USERNAME:
-        from_secret: DOCKER_HUB_USERNAME
-      PASSWORD:
-        from_secret: DOCKER_HUB_PASSWORD  
-    username: ${USERNAME}
-    password: ${PASSWORD}
-    repo: nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
-    tag: latest
+    settings: 
+      username: 
+        from_secret: USERNAME
+      password:
+        from_secret: PASSWORD
+      repo: nunz9684/test-ci-project:$DRONE_BUILD_NUMBER
+      tag: latest
     file: Dockerfile
     when:
       branch: [master]
