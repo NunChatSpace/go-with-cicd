@@ -1,7 +1,6 @@
-FROM golang:1.15-alpine as builder
-RUN apk --no-cache add tzdata
+FROM golang:1.16
 WORKDIR /app
 COPY . .
 
-RUN go mod download
-RUN go build -o /go-with-cicd
+RUN go mod tidy
+CMD ["go","run", "main.go"]
