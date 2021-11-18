@@ -14,8 +14,10 @@ steps:
       tag: latest
     file: Dockerfile
     when:
-      branch: [main]
-      event: [push]
+      branch:
+      - main
+      event: 
+      - push
 
 # ---
 # kind: pipeline
