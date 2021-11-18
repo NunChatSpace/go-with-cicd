@@ -7,7 +7,7 @@ func GetServer() *gin.Engine {
 
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "What's up bro!",
+			"message": "What's up bro!   ",
 		})
 	})
 
